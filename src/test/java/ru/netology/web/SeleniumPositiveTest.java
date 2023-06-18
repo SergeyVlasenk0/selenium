@@ -7,11 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,12 +16,12 @@ class SeleniumPositiveTest {
     private WebDriver driver;
 
     @BeforeAll
-    static void setUpAll() {
+    public static void setUpAll() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
-    void setUp() {
+    public void beforeEach() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
@@ -34,7 +31,7 @@ class SeleniumPositiveTest {
     }
 
     @AfterEach
-    void tearDown() {
+    public void AfterEach() {
         driver.quit();
         driver = null;
     }
